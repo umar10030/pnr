@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Picker</title>
+</head>
+<body>
+    <h1>Random Number Picker</h1>
+    <p>Type some numbers separated by commas:</p>
+    <input id="numbers" placeholder="Example: 1, 2, 3">
+    <button onclick="pickNumber()">Pick a Number</button>
+    <p id="result"></p>
+
+    <script>
+        function pickNumber() {
+            let input = document.getElementById("numbers").value;
+            let numbers = input.split(",");
+
+            if (numbers.length > 0 && numbers[0].trim() !== "") {
+                let randomIndex = Math.floor(Math.random() * numbers.length);
+                let randomNumber = numbers[randomIndex].trim();
+                document.getElementById("result").innerText = "You got: " + randomNumber;
+            } else {
+                document.getElementById("result").innerText = "Please type some numbers!";
+            }
+        }
+    </script>
+</body>
+</html>
